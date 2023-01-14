@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script src="app.js"></script>
+<body onload="init();">
+
+
+
+<h1>Sanity Refresh Farming Calculator</h1>
+<h3>Estimate how much sanity/sanity refreshes you'll need to farm a given amount of a material from certain events.  Please note that this does not account for natural sanity regeneration</h3>
+
+<label for="maxSanity">Your Maximum Sanity:</label>
+<input type="text" id="maxSanity" name="maxSanity"><br><br>
+
+<label for="events">Choose an Event:</label>
+<select name="events" id="events" onchange="changeEvent()">
+</select><br><br>
+<img src="" id="eventImg"><br><br>
+
+<label for="stage">Choose a Stage:</label>
+<select name="stage" id="stage">
+</select><br><br>
+
+<label for="matCount">Amount of Selected Material You Want:</label>
+<input type="text" id="matCount" name="matCount"><br><br>
+
+<button type="button" onclick="calculateSanityCost()">Calculate</button><br><br>
+
+<label id="costLabel"></label> <br><br>
+<label id="sanity"></label><br><br>
+<label id="smallPot"></label><br><br>
+<label id="largePot"></label><br><br>
+<label id="prime"></label><br><br>
+
+</body>
+</html>
