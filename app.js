@@ -53,7 +53,7 @@ function init() {
 
             Http3.onload = (e) => {
                 penguinStatsZoneData = JSON.parse(Http3.responseText);
-                zones = penguinStatsZoneData.filter(data => (!data.existence.US.exist || data.zoneId.includes('act20side')) && data.type === 'ACTIVITY' && !data.zoneId.includes('mini') && !data.zoneId.includes('act12sre'));
+                zones = penguinStatsZoneData.filter(data => (!data.existence.US.exist || data.existence.US.closeTime > Date.now()) && data.type === 'ACTIVITY' && !data.zoneId.includes('mini') && !data.zoneId.includes('act12sre'));
                 eventStages = penguinStatsData.filter(data => zones[0].stages.includes(data.stageId) && penguinStatsItemIds.includes(data.itemId)).sort((a, b) => a.stageId > b.stageId ? 1 : -1);
                 for(let i = 0; i < zones.length; i++) {
                     let option = document.createElement('option');
