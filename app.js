@@ -28,8 +28,6 @@ const materials_penguin = {
 }
 
 function init() {
-    console.log('test');
-    
     const Http = new XMLHttpRequest();
     const url='https://penguin-stats.io/PenguinStats/api/v2/result/matrix?is_personal=false&server=CN&show_closed_zones=true';
     Http.open("GET", url, true);
@@ -74,20 +72,6 @@ function init() {
                     option.text = eventStagesInfo[i].code + ': ' + materials_penguin[eventItems[i].itemId] + ' ' + ((100 * (parseFloat(eventStages[i].quantity/eventStages[i].times))).toFixed(2) + '%') + ' (' + eventStagesInfo[i].apCost + ' Sanity)';
                     option.value = eventStagesInfo[i].stageId;
                     document.getElementById("stage").add(option);
-                }
-                let dropsString = '';
-                
-                if(eventStagesInfo.length === 0) {
-                    
-                    if(zones[0].zoneId.includes('act12')){
-                        //dropsString = '<:rock_cluster:871554618243551263> <:manganese:871554618499416146> <:orion:871554618696556554>';
-                    }
-                } else if(!eventStagesInfo[0].zoneId.includes('mini')) {
-                    for(let i = 0; i < eventStages.length; i++) {
-                        //dropsString += eventStagesInfo[i].code + ': ' + constants.materials_penguin[eventItems[i].itemId] + ' ' + ((100 * (parseFloat(eventStages[i].quantity/eventStages[i].times))).toFixed(2) + '%') + ' (' + eventStagesInfo[i].apCost + ' Sanity)\n';
-                    }
-                } else {
-                    dropsString = 'N/A';
                 }
             }
         }
